@@ -1,0 +1,35 @@
+{%extends 'testapp/base.html'%}
+{%block body%}
+
+<div class="container jumbotron" xmlns="http://www.w3.org/1999/html">
+    <h2 class="text-center text-primary font-weight-bold">You Deliverd all your Assigned Orders.</h2><br>
+
+    <a href="{%url 'index' %}" ><h2 class="form-control btn btn-md btn-primary"style = "text-align:center;">Click this button to go to home page</h2></a></div>
+
+
+<h2 class="text-center text-primary font-weight-bold"> Deliverd Orders Today</h2>
+<div class="container" style="margin-top:60px ">
+    <table id="table_id" class="table table-hover">
+        <thead>
+        <tr>
+            <th>Order Name</th>
+            <th>Deliverd time</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in orders %}
+        <tr>
+            <td>{{i.order_name}}</td>
+            <td>{{i.deliverd_time}}</td>
+
+
+        </tr>
+        {%endfor%}
+        </tbody>
+
+    </table>
+</div>
+
+
+{%endblock%}

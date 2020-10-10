@@ -1,0 +1,27 @@
+{% extends 'testapp/base.html'%}
+{%block body%}
+<br>
+<div class = "container">
+    <h2 class="text-center text-primary font-weight-bold">Locations To Deliver Your Assigned Orders Today</h2><br>
+    <h3 class="text-center text-info font-weight-bold">Blue icon indicates your location Purple icon indicates destination location</h3><br>
+
+    <div class="row">
+
+        <div class="col-lg-10">{{ map|safe }}</div>
+
+        <div class="col-lg-2">
+
+            <form  method = "POST">
+                {%csrf_token%}
+
+                <label><b>Click on Start button when you start for deliver</b></label>
+
+                <a href="{%url 'dstlct' %}"><btn class="btn btn-md btn-primary" >Start</btn></a>
+
+            </form><br><br>
+             <p class="text-center text-info font-weight-bold">**Don't Click on Back button once you click on start because locations will might mess up</p><br>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

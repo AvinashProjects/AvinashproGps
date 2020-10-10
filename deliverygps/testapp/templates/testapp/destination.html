@@ -1,0 +1,28 @@
+{% extends 'testapp/base.html'%}
+{%block body%}
+<br>
+<div class = "container">
+    <h2 class="text-center text-primary font-weight-bold">Current Delivery Location</h2><br>
+    <h3 class="text-center text-info font-weight-bold">Blue color Icon indicates your location and Purple color Icon indicates destination location</h3><br>
+
+    <div class="row">
+
+        <div class="col-lg-10">{{ map|safe }}</div>
+
+        <div class="col-lg-2">
+
+            <form method = "POST">
+                {%csrf_token%}
+                 <label for="appt"><b>Enter Deliverd Time:</b></label>
+                 <input type="time" id="appt" name="t" step="1" required><br><br>
+                 <input type="submit" value="Click Here" class="form-control btn btn-primary">
+            </form><br><br>
+            <p class="text-center text-info font-weight-bold">You can Reach the Destination in "{{time_reach}} Mins"  if you maintain 40 kms of speed</p><br>
+            <p class="text-center text-info font-weight-bold">Your delay time should be lessthan 30 mins</p><br>
+            <p class="text-center text-info font-weight-bold">Avg. time spend at a delivery order location is 5min</p><br>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
